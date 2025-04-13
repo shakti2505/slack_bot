@@ -247,7 +247,7 @@ export const approveRequest = async ({ ack, body, client }) => {
   });
 
   // update the request status for the request from pending to approved
-  const { channel, ts } = messageStore.get(requesterId); // timestamp and channel of the messasge send to request with initial status to update it when to approved when request gets approved
+  const { channel, ts } = messageStore.get(requesterId); // timestamp and channel of the messasge send to request with initial status to update, when request gets approved
   await client.chat.update({
     channel: channel,
     ts: ts,
@@ -323,7 +323,7 @@ export const rejectRequest = async ({ ack, body, client }) => {
     ],
   });
   // update the request status for the request from pending to Rejected
-  const { channel, ts } = messageStore.get(requesterId); // timestamp and channel of the messasge send to request with initial status to update it when to approved when request gets approved
+  const { channel, ts } = messageStore.get(requesterId); // timestamp and channel of the messasge send to request with initial status to update it when request gets Rejected
   await client.chat.update({
     channel: channel,
     ts: ts,
